@@ -17,6 +17,7 @@ const typeDefs = `#graphql
   type Category {
     id: ID!
     name: String!
+    products: [Product!]!
   }
 
   type Product {
@@ -27,6 +28,7 @@ const typeDefs = `#graphql
     image: String
     price: Float!
     onSale: Boolean!
+    categoryId: ID!
   }
 `;
 
@@ -48,6 +50,13 @@ const resolvers = {
         const { id } = args;
         return categories.find(category => category.id === id);
     }
+  },
+  Category: {
+    products: (category) => {
+      // Return all products that belong to this category
+      // For now, let's assume we add a categoryId field to products
+      return products.filter(product => product.categoryId === category.id);
+    },
   },
 };
 
