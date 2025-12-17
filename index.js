@@ -11,6 +11,7 @@ const typeDefs = `#graphql
     products: [Product!]!
     product(id: ID!): Product!
     categories: [Category!]!
+    category(id: ID!): Category
   }
 
   type Category {
@@ -42,6 +43,10 @@ const resolvers = {
     },
     categories: () => {
         return categories;
+    },
+    category: (_, args) => {
+        const { id } = args;
+        return categories.find(category => category.id === id);
     }
   },
 };
