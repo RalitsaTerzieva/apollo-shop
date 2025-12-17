@@ -3,6 +3,7 @@ import { startStandaloneServer } from "@apollo/server/standalone";
 import data from './initial-data.js';
 
 const {products, categories} = data;
+
  //GraphQL schema - shape of your data and the operations clients can perform
 const typeDefs = `#graphql
   type Query {
@@ -18,6 +19,7 @@ const typeDefs = `#graphql
   }
 
   type Product {
+    id: ID!
     name: String!
     description: String!
     quantity: Int
