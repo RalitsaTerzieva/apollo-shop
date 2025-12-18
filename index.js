@@ -19,7 +19,7 @@ const typeDefs = `#graphql
     name: String!
     products: [Product!]!
   }
-
+ 
   type Product {
     id: ID!
     name: String!
@@ -28,7 +28,7 @@ const typeDefs = `#graphql
     image: String
     price: Float!
     onSale: Boolean!
-    categoryId: ID!
+    category: Category
   }
 `;
 
@@ -58,6 +58,12 @@ const resolvers = {
       return products.filter(product => product.categoryId === category.id);
     },
   },
+  Product: {
+    category: (parent, args, context) => {
+        const categoryId = parent.categoryId;
+        return categories.find(category => category.id === categoryId);
+    }
+  }
 };
 
 const server = new ApolloServer({
