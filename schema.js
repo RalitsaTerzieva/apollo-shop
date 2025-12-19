@@ -23,5 +23,15 @@ export const typeDefs = `#graphql
     price: Float!
     onSale: Boolean!
     category: Category
+    reviews: [Reviews!]!
+  }
+
+  type Reviews {
+    id: ID!
+    date: String!
+    title: String!
+    comment: String!
+    rating: Int!
+    productId: ID!
   }
 `;

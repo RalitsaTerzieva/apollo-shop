@@ -6,8 +6,6 @@ import { Query } from "./resolvers/Query.js";
 import { Category } from "./resolvers/Category.js";
 import { Product } from "./resolvers/Product.js";
 
-const {products, categories} = data;
-
 // Resolvers are functions that implement the logic behind the schema. They tell Apollo Server how to fetch or modify the data for each field defined in your typeDefs.
 const resolvers = {
   Query,
