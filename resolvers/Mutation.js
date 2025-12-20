@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import data from "../initial-data.js";
 
-const { categories, products } = data;
+const { categories, products, reviews } = data;
 
 export const Mutation = {
     addCategory: (parent, { input }) => {
@@ -28,5 +28,21 @@ export const Mutation = {
         products.push(newProduct);
 
         return newProduct;
+    },
+    addReview: (parent, { input }) => {
+        const { date, title, comment, rating, productId } = input;
+
+        const newReview = {
+            id: uuidv4(),
+            date,
+            title,
+            comment,
+            rating,
+            productId
+        };
+
+        reviews.push(newReview);
+
+        return newReview;
     }
 }

@@ -11,6 +11,7 @@ export const typeDefs = `#graphql
   type Mutation {
     addCategory(input: AddCategoryInput): Category!
     addProduct(input: AddProductInput): Product!
+    addReview(input: AddReviewInput): Reviews!
   }
 
   type Category {
@@ -53,5 +54,13 @@ export const typeDefs = `#graphql
   input AddProductInput {
     name: String!
     description: String!
+  }
+
+  input AddReviewInput {
+    date: String!
+    title: String!
+    comment: String!
+    rating: Int!
+    productId: ID!
   }
 `;
