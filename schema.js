@@ -8,6 +8,10 @@ export const typeDefs = `#graphql
     category(id: ID!): Category
   }
 
+  type Mutation {
+    addCategory(input: AddCategoryInput): Category!
+  }
+
   type Category {
     id: ID!
     name: String!
@@ -39,5 +43,9 @@ export const typeDefs = `#graphql
   input ProductsFilterInput {
     onSale: Boolean
     minAvgRating: Float
+  }
+
+  input AddCategoryInput {
+    name: String!
   }
 `;
