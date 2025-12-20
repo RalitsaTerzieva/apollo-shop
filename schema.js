@@ -24,6 +24,7 @@ export const typeDefs = `#graphql
     onSale: Boolean!
     category: Category
     reviews: [Reviews!]!
+    avgRating: Float
   }
 
   type Reviews {
@@ -37,5 +38,6 @@ export const typeDefs = `#graphql
 
   input ProductsFilterInput {
     onSale: Boolean
+    minAvgRating: Float
   }
 `;

@@ -12,4 +12,18 @@ export const Product = {
     // Return all reviews whose productId matches this product's id
     return reviews.filter(review => review.productId === product.id);
   },
+   avgRating: (product) => {
+    const productReviews = reviews.filter(
+      review => review.productId === product.id
+    );
+
+    if (!productReviews.length) return null;
+
+    const total = productReviews.reduce(
+      (sum, review) => sum + review.rating,
+      0
+    );
+
+    return total / productReviews.length;
+  },
 };

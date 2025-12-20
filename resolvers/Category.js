@@ -1,21 +1,41 @@
 import data from "../initial-data.js";
 
-const { products } = data;
+const { products, reviews } = data;
+
+function getAverageRating(productId) {
+  const productReviews = reviews.filter(
+    review => review.productId === productId
+  );
+
+  if (!productReviews.length) return null;
+
+  const total = productReviews.reduce(
+    (sum, review) => sum + review.rating,
+    0
+  );
+
+  return total / productReviews.length;
+}
 
 export const Category = {
   products: (category, { filter }) => {
-    const categoryProducts = products.filter(
+    let filteredProducts = products.filter(
       product => product.categoryId === category.id
     );
-    let filteredProducts = categoryProducts;
-    
-    if(filter) {
-        if(filter.onSale === true) {
-            filteredProducts = filteredProducts.filter(product => {
-                return product.onSale;
-            })
-        }
+
+    if (filter?.onSale === true) {
+      filteredProducts = filteredProducts.filter(
+        product => product.onSale
+      );
     }
-    return filteredProducts
+
+    if (filter?.minAvgRating !== undefined) {
+      filteredProducts = filteredProducts.filter(product => {
+        const avg = getAverageRating(product.id);
+        return avg !== null && avg >= filter.minAvgRating;
+      });
+    }
+
+    return filteredProducts;
   },
 };
