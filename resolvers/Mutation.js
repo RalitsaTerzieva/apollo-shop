@@ -104,5 +104,14 @@ export const Mutation = {
             ...input
         }
         return categories[index];
+    },
+    updateProduct: (parent, { id, input }) => {
+        const index = products.findIndex(product => product.id === id);
+        products[index] = {
+            ...products[index],
+            ...input
+        }
+
+        return products[index];
     }
 }

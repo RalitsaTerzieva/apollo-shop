@@ -16,6 +16,7 @@ export const typeDefs = `#graphql
     deleteProduct(id: ID!):Boolean
     deleteReview(id: ID!): Boolean
     updateCategory(id: ID!, input: UpdateCategoryInput): Category!
+    updateProduct(id: ID!, input: UpdateProductInput): Product!
   }
 
   type Category {
@@ -60,6 +61,11 @@ export const typeDefs = `#graphql
   }
 
   input AddProductInput {
+    name: String!
+    description: String!
+  }
+
+  input UpdateProductInput {
     name: String!
     description: String!
   }
