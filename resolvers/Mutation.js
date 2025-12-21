@@ -96,5 +96,13 @@ export const Mutation = {
         reviews.splice(index, 1);
 
         return true;
+    },
+    updateCategory: (parent, { id, input }) => {
+        const index = categories.findIndex(category => category.id === id);
+        categories[index] = {
+            ...categories[index],
+            ...input
+        }
+        return categories[index];
     }
 }
