@@ -45,4 +45,43 @@ export const Mutation = {
 
         return newReview;
     },
+    deleteCategory: (parent, { id }) => {
+    const index = categories.findIndex(
+        category => category.id === id
+    );
+
+    if (index === -1) {
+        return false;
+    }
+
+    // Remove category reference from products
+    db.products = db.products.map(product => {
+        if (product.categoryId === id) {
+            return {
+                ...product,
+                categoryId: null
+            };
+        } else {
+            return product;
+            }
+        });
+
+    // Remove category itself
+    categories.splice(index, 1);
+
+    return true;
+    },
+    deleteProduct: (parent, { id }) => {
+        const index = products.findIndex(
+            product => product.id === id
+        );
+
+        if (index === -1) {
+            return false;
+        }
+
+        products.splice(index, 1);
+
+        return true;
+    }
 }

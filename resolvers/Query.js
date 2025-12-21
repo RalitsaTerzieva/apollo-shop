@@ -6,7 +6,7 @@ export const Query = {
   hello: () => ["Hello GraphQL 🚀", "We are ready"],
 
   products: (parent, {filter}, context) => {
-    let filteredProducts = products
+    let filteredProducts = products;
 
     if(filter) {
         if(filter.onSale === true) {
