@@ -286,4 +286,8 @@ const reviews = [
   },
 ];
 
-export default { products, categories, reviews };
+export const db = {
+  products,
+  categories,
+  reviews,
+};

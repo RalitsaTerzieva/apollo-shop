@@ -1,6 +1,6 @@
-import data from "../initial-data.js";
+import { db } from "../initial-data.js";
 
-const { products, categories } = data;
+const { products, categories } = db;
 
 export const Query = {
   hello: () => ["Hello GraphQL 🚀", "We are ready"],

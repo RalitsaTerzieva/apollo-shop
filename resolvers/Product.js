@@ -1,6 +1,6 @@
-import data from "../initial-data.js";
+import { db } from "../initial-data.js";
 
-const { categories, reviews } = data;
+const { categories, reviews } = db;
 
 export const Product = {
   category: (parent) => {

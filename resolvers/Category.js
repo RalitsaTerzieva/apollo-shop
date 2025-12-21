@@ -1,6 +1,6 @@
-import data from "../initial-data.js";
+import { db } from "../initial-data.js";
 
-const { products, reviews } = data;
+const { products, reviews } = db;
 
 function getAverageRating(productId) {
   const productReviews = reviews.filter(
