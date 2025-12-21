@@ -113,5 +113,14 @@ export const Mutation = {
         }
 
         return products[index];
+    },
+    updateReview: (parent, { id, input}) => {
+        const index = reviews.findIndex(review => review.id === id);
+        reviews[index] = {
+            ...reviews[index],
+            ...input
+        }
+
+        return reviews[index]
     }
 }
