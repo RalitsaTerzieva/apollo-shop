@@ -93,7 +93,7 @@ export const Mutation = {
             return false;
         }
 
-        reviews.splice(index, 1); // ✅ mutate array, no reassignment
+        reviews.splice(index, 1);
 
         return true;
     }
