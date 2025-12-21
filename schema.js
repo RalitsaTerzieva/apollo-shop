@@ -12,6 +12,7 @@ export const typeDefs = `#graphql
     addCategory(input: AddCategoryInput): Category!
     addProduct(input: AddProductInput): Product!
     addReview(input: AddReviewInput): Reviews!
+    deleteCategory(id: ID!): Boolean
   }
 
   type Category {
