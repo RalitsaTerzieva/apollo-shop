@@ -83,5 +83,18 @@ export const Mutation = {
         products.splice(index, 1);
 
         return true;
+    },
+    deleteReview: (parent, { id }) => {
+         const index = reviews.findIndex(
+            review => review.id === id
+        );
+
+        if (index === -1) {
+            return false;
+        }
+
+        reviews.splice(index, 1); // ✅ mutate array, no reassignment
+
+        return true;
     }
 }

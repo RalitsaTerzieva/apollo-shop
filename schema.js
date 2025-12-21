@@ -14,6 +14,7 @@ export const typeDefs = `#graphql
     addReview(input: AddReviewInput): Reviews!
     deleteCategory(id: ID!): Boolean
     deleteProduct(id: ID!):Boolean
+    deleteReview(id: ID!): Boolean
   }
 
   type Category {
